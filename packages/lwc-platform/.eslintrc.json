@@ -1,0 +1,15 @@
+{
+  "extends": ["@salesforce/eslint-config-lwc/recommended"],
+  "parser": "@babel/eslint-parser",
+  "rules": {
+    "@lwc/lwc/no-unknown-wire-adapters": "off"
+  },
+  "overrides": [
+    {
+      "files": ["./*.js", "*.test.js"],
+      "env": {
+        "node": true
+      }
+    }
+  ]
+}

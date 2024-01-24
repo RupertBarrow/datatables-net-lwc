@@ -1,0 +1,29 @@
+tfoot {
+  background: lightblue;
+}
+
+.addButton {
+  padding-right: 10px;
+}
+
+/* In Chrome extension, there seems to be a CSS conflict which adds 'style:"pointer-events:none"' to enabled Add and Remove buttons, */
+/* so we fix that with these 3 entries */
+.addButton:enabled {
+  pointer-events: all !important;
+}
+
+.removeButton:enabled {
+  pointer-events: all !important;
+}
+
+.commitButton:enabled {
+  pointer-events: all !important;
+}
+
+.margin_top {
+  margin-top: 1rem;
+}
+
+.margin_bottom {
+  margin-bottom: 1rem;
+}

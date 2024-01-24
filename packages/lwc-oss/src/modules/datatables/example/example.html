@@ -1,0 +1,36 @@
+<template>
+
+  <!-- SOURCE TABS : Source Members and Metadata -->
+  <lightning-layout horizontal-align="spread">
+    <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="12" large-device-size="12">
+      <datatables-my-datatables-net data-id="table1"
+                                    value="sourceMember"
+                                    type="sourceMember"
+                                    onaddrowstocommit={handleAddRowsToCommit}
+                                    onaddidstocommit={handleAddIdsToCommit}
+                                    onrowselection={handleRowSelections}>
+      </datatables-my-datatables-net>
+    </lightning-layout-item>
+  </lightning-layout>
+
+  <!-- DESTINATION TABS -->
+  <lightning-layout horizontal-align="spread">
+    <lightning-layout-item size="7" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="7">
+
+      <!-- add/remove buttons -->
+      <lightning-button-group class="slds-button__icon_large slds-align_absolute-center margin_bottom">
+        <lightning-button label="Add" variant="brand" icon-name="utility:arrowdown" onclick={doAddToCommit} class="addButton large-button" disabled={addButtonDisabled}></lightning-button>
+        <lightning-button label="Remove" variant="brand" icon-name="utility:arrowup" onclick={doRemoveFromCommit} class="removeButton large-button" disabled={removeButtonDisabled}></lightning-button>
+      </lightning-button-group>
+
+      <datatables-my-datatables-net data-id="table2"
+                                    value="destination"
+                                    type="destination"
+                                    onremovefromcommit={handleRemoveRowsFromCommit}
+                                    onrowselection={handleRowSelections}>
+      </datatables-my-datatables-net>
+
+    </lightning-layout-item>
+
+  </lightning-layout>
+</template>

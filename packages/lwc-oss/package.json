@@ -1,0 +1,131 @@
+{
+  "name": "@rupertbarrow/datatables-net-lwc-oss",
+  "description": "LWC-OSS implementation of Datatables.net, with an example app",
+  "version": "0.0.1",
+  "author": "Rupert Barrow @ Rapido.org",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/RupertBarrow/datatables-net-lwc",
+  "homepage": "https://github.com/RupertBarrow/datatables-net-lwc",
+  "bugs": "https://github.com/RupertBarrow/datatables-net-lwc/issues",
+  "keywords": [
+    "salesforce",
+    "Datatables.net",
+    "lwc",
+    "oss"
+  ],
+  "main": "dist/app.bundle.js",
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "@lwc/synthetic-shadow": "^2.37.1",
+    "@salesforce-ux/design-system": "^2.20.1",
+    "@salesforce/source-deploy-retrieve": "^7.9.1",
+    "assert": "^2.0.0",
+    "babel-loader": "^9.1.2",
+    "browserify-zlib": "^0.2.0",
+    "datatables.net-bs5": "^1.13.2",
+    "datatables.net-buttons-bs5": "^2.3.4",
+    "datatables.net-select-bs5": "^1.6.0",
+    "dotenv": "^16.0.3",
+    "imports-loader": "^4.0.1",
+    "lightning-base-components": "^1.17.3-alpha",
+    "lwc": "^2.40.1",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=6.4.1",
+    "yarn": ">=1.9.4"
+  },
+  "scripts": {
+    "build": "               webpack build --mode production  -c webpack.config.js",
+    "build:ui:development": "webpack build --mode development -c webpack.config.js",
+    "precommit": "      lint-staged",
+    "lint": "           eslint ./src/**/*.js",
+    "prettier": "       prettier          --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+    "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+    "watch": "webpack serve -c webpack.config.js"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.15",
+    "@lwc/eslint-plugin-lwc": "^1.6.3",
+    "@lwc/jest-preset": "^11.7.1",
+    "@lwc/module-resolver": "^2.40.1",
+    "@salesforce/eslint-config-lwc": "^3.5.2",
+    "@salesforce/eslint-plugin-lightning": "^1.0.0",
+    "@salesforce/wire-service-jest-util": "^4.0.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jest": "^27.4.2",
+    "html-webpack-plugin": "^5.5.3",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "jest-canvas-mock": "^2.4.0",
+    "lint-staged": "^13.1.0",
+    "lwc-webpack-plugin": "^3.0.3",
+    "prettier": "^2.8.3",
+    "terser-webpack-plugin": "^5.3.7",
+    "webpack": "^5.88.2",
+    "webpack-cli": "4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
+      "prettier --write"
+    ],
+    "**/src/**/*.js": [
+      "eslint"
+    ],
+    "**/src/**": [
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "lwc": {
+    "exclude": [
+      "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.mjs",
+      "../../../node_modules/**/js/*.mjs",
+      "../../../node_modules/**/*.mjs",
+      "../../node_modules/**/js/*.mjs",
+      "../../node_modules/**/*.mjs",
+      "../node_modules/**/js/*.mjs",
+      "../node_modules/**/*.mjs",
+      "node_modules/**/js/*.mjs",
+      "node_modules/**/*.mjs",
+      "**/js/*.mjs",
+      "**/*.mjs"
+    ],
+    "sourcemap": true,
+    "rootDir": "./",
+    "modules": [
+      {
+        "dir": "src/modules"
+      },
+      {
+        "npm": "lightning-base-components"
+      },
+      {
+        "npm": "@salesforce-ux/design-system"
+      },
+      {
+        "npm": "datatables.net-buttons-bs5"
+      },
+      {
+        "npm": "datatables.net-select-bs5"
+      }
+    ],
+    "expose": [
+      "main/app"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@rupertbarrow/datatables-net-lwc-platform",
+  "description": "LWC implementation of Datatables.net, with an example app on the Salesforce platform",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Rupert Barrow @ Rapido.org",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/RupertBarrow/datatables-net-lwc",
+  "homepage": "https://github.com/RupertBarrow/datatables-net-lwc",
+  "bugs": "https://github.com/RupertBarrow/datatables-net-lwc/issues",
+  "keywords": [
+    "salesforce",
+    "Datatables.net",
+    "lwc"
+  ],
+  "scripts": {
+    "lint": "npm run lint:lwc && npm run lint:aura",
+    "lint:lwc": "eslint **/lwc/**",
+    "lint:aura": "sfdx force:lightning:lint **/aura/** --exit",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "sfdx-lwc-jest",
+    "test:unit:watch": "sfdx-lwc-jest --watch",
+    "test:unit:debug": "sfdx-lwc-jest --debug",
+    "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+    "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\""
+  },
+  "engines": {
+    "node": ">= 10.13.0",
+    "npm": ">= 6.5.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "^0.7.0",
+    "@salesforce/eslint-config-lwc": "^3.5.2",
+    "@salesforce/sfdx-lwc-jest": "^0.6.2",
+    "eslint": "^5.16.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "prettier-plugin-apex": "^1.1.0",
+    "semver": "^7.1.2"
+  },
+  "lint-staged": {
+    "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
+      "prettier --write"
+    ],
+    "**/lwc/**": [
+      "eslint"
+    ]
+  }
+}

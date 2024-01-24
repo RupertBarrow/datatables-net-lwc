@@ -1,0 +1,11 @@
+.isInCommit {
+  background-color: lightgrey;
+  font-style: italic;
+}
+
+.slds-table,
+.datatables-basetable_basetable,
+.ui-datatablesnet_datatablesnet,
+.undefined-_basetable {
+  font-size: small;
+}

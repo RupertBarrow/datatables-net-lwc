@@ -1,4 +1,4 @@
-# Datatbles.net in LWC
+# Datatables.net in LWC
 
 See 2 examples for this implementation on platform and off platform.
 
